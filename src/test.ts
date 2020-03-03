@@ -33,10 +33,14 @@ poweredUP.on("discover", async (hub: Hub) => {
     sensor.on('distance', (distance) => console.log(distance))
 
     const currentSensor = (await hub.waitForDeviceByType(PoweredUP.Consts.DeviceType.CURRENT_SENSOR)) as PoweredUP.CurrentSensor;
-    currentSensor.on("current", (current:any) => {});
-  
+    currentSensor.on("current", (current:any) => {
+      // do nothing
+    });
+
     const voltageSensor = (await hub.waitForDeviceByType(PoweredUP.Consts.DeviceType.VOLTAGE_SENSOR)) as PoweredUP.VoltageSensor;
-    voltageSensor.on("voltage", (voltage:any) => {});
+    voltageSensor.on("voltage", (voltage:any) => {
+      // do nothing
+    });
 
     // hub.on("attach", async (device: PoweredUP.Device) => console.log('attach', device));
     // hub.on("detach", async (device: PoweredUP.Device) => console.log('detach', device));
@@ -49,10 +53,14 @@ poweredUP.on("discover", async (hub: Hub) => {
   await hub.connect();
 
   const currentSensor = (await hub.waitForDeviceByType(PoweredUP.Consts.DeviceType.CURRENT_SENSOR)) as PoweredUP.CurrentSensor;
-  currentSensor.on("current", (current:any) => {});
+  currentSensor.on("current", (current:any) => {
+    // do nothing
+  });
 
   const voltageSensor = (await hub.waitForDeviceByType(PoweredUP.Consts.DeviceType.VOLTAGE_SENSOR)) as PoweredUP.VoltageSensor;
-  voltageSensor.on("voltage", (voltage:any) => {});
+  voltageSensor.on("voltage", (voltage:any) => {
+    // do nothing
+  });
 
   // hub.on("attach", async (device: PoweredUP.Device) => console.log('attach', device));
   // hub.on("detach", async (device: PoweredUP.Device) => console.log('detach', device));

@@ -1,40 +1,38 @@
-import { Device } from "./device";
-
-import { IDeviceInterface } from "../interfaces";
-
-import * as Consts from "../consts";
-
-import { calculateRamp, mapSpeed } from "../utils";
-
+"use strict";
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const device_1 = require("./device");
+const Consts = __importStar(require("../consts"));
+const utils_1 = require("../utils");
 /**
  * @class BasicMotor
  * @extends Device
  */
-export class BasicMotor extends Device {
-
-
-    constructor (hub: IDeviceInterface, portId: number, modeMap: {[event: string]: number}, type: Consts.DeviceType = Consts.DeviceType.UNKNOWN) {
+class BasicMotor extends device_1.Device {
+    constructor(hub, portId, modeMap, type = Consts.DeviceType.UNKNOWN) {
         super(hub, portId, modeMap, type);
     }
-
-
     /**
      * Set the motor power.
      * @method BasicMotor#setPower
      * @param {number} power For forward, a value between 1 - 100 should be set. For reverse, a value between -1 to -100. Stop is 0.
      * @returns {Promise} Resolved upon successful issuance of the command.
      */
-    public setPower (power: number, interrupt: boolean = true) {
+    setPower(power, interrupt = true) {
         if (interrupt) {
             this.cancelEventTimer();
         }
         // return new Promise((resolve) => {
-            return this.writeDirect(0x00, Buffer.from([mapSpeed(power)]));
-            // return resolve();
+        return this.writeDirect(0x00, Buffer.from([utils_1.mapSpeed(power)]));
+        // return resolve();
         // });
     }
-
-
     /**
      * Ramp the motor power.
      * @method BasicMotor#rampPower
@@ -43,43 +41,39 @@ export class BasicMotor extends Device {
      * @param {number} time How long the ramp should last (in milliseconds).
      * @returns {Promise} Resolved upon successful completion of command.
      */
-    public rampPower (fromPower: number, toPower: number, time: number) {
+    rampPower(fromPower, toPower, time) {
         this.cancelEventTimer();
         return new Promise((resolve) => {
-            calculateRamp(this, fromPower, toPower, time)
-            .on("changePower", async (power) => {
+            utils_1.calculateRamp(this, fromPower, toPower, time)
+                .on("changePower", async (power) => {
                 // console.log(`[${(this.hub as any).name}] power to ${power}`)
                 await this.setPower(power, false);
                 // console.log(`[${(this.hub as any).name}] power now ${power}`)
             })
-            .on("finished", () => {
+                .on("finished", () => {
                 // console.log(`[${(this.hub as any).name}] finished`)
                 resolve();
             });
         });
     }
-
-
     /**
      * Stop the motor.
      * @method BasicMotor#stop
      * @returns {Promise} Resolved upon successful issuance of the command.
      */
-    public stop () {
+    stop() {
         this.cancelEventTimer();
         return this.setPower(0);
     }
-
-
     /**
      * Brake the motor.
      * @method BasicMotor#brake
      * @returns {Promise} Resolved upon successful issuance of the command.
      */
-    public brake () {
+    brake() {
         this.cancelEventTimer();
         return this.setPower(Consts.BrakingStyle.BRAKE);
     }
-
-
 }
+exports.BasicMotor = BasicMotor;
+//# sourceMappingURL=basicmotor.js.map

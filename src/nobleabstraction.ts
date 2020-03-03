@@ -37,10 +37,10 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
             this.emit("disconnect");
         });
         // NK: This hack allows LPF2.0 hubs to send a second advertisement packet consisting of the hub name before we try to read it
-        setTimeout(() => {
-            this._name = device.advertisement.localName;
-            this.emit("discoverComplete");
-        }, 1000);
+        // setTimeout(() => {
+            // this._name = device.advertisement.localName;
+            // this.emit("discoverComplete");
+        // }, 1000);
     }
 
 
@@ -68,6 +68,11 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
         return new Promise((resolve, reject) => {
             this._connecting = true;
             this._noblePeripheral.connect((err: string) => {
+                if(err) {
+                    reject(err);
+                    return;
+                }
+
                 this._connecting = false;
                 this._connected = true;
                 return resolve();
@@ -78,8 +83,8 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
 
     public disconnect () {
         return new Promise((resolve, reject) => {
-            this._noblePeripheral.disconnect();
-            return resolve();
+            this._noblePeripheral.disconnect(resolve);
+            // return resolve();
         });
     }
 

@@ -26,10 +26,10 @@ class NobleDevice extends events_1.EventEmitter {
             this.emit("disconnect");
         });
         // NK: This hack allows LPF2.0 hubs to send a second advertisement packet consisting of the hub name before we try to read it
-        setTimeout(() => {
-            this._name = device.advertisement.localName;
-            this.emit("discoverComplete");
-        }, 1000);
+        // setTimeout(() => {
+        // this._name = device.advertisement.localName;
+        // this.emit("discoverComplete");
+        // }, 1000);
     }
     get uuid() {
         return this._uuid;
@@ -47,6 +47,10 @@ class NobleDevice extends events_1.EventEmitter {
         return new Promise((resolve, reject) => {
             this._connecting = true;
             this._noblePeripheral.connect((err) => {
+                if (err) {
+                    reject(err);
+                    return;
+                }
                 this._connecting = false;
                 this._connected = true;
                 return resolve();
@@ -55,8 +59,8 @@ class NobleDevice extends events_1.EventEmitter {
     }
     disconnect() {
         return new Promise((resolve, reject) => {
-            this._noblePeripheral.disconnect();
-            return resolve();
+            this._noblePeripheral.disconnect(resolve);
+            // return resolve();
         });
     }
     discoverCharacteristicsForService(uuid) {

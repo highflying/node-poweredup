@@ -168,7 +168,7 @@ export class PoweredUP extends EventEmitter {
             return;
         }
 
-        device.on("discoverComplete", () => {
+        // device.on("discoverComplete", () => {
 
             hub.on("connect", () => {
                 debug(`Hub ${hub.uuid} connected`);
@@ -193,7 +193,7 @@ export class PoweredUP extends EventEmitter {
              */
             this.emit("discover", hub);
 
-        });
+        // });
 
     }
 

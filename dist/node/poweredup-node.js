@@ -136,26 +136,26 @@ class PoweredUP extends events_1.EventEmitter {
         else {
             return;
         }
-        device.on("discoverComplete", () => {
-            hub.on("connect", () => {
-                debug(`Hub ${hub.uuid} connected`);
-                this._connectedHubs[hub.uuid] = hub;
-            });
-            hub.on("disconnect", () => {
-                debug(`Hub ${hub.uuid} disconnected`);
-                delete this._connectedHubs[hub.uuid];
-                if (wantScan) {
-                    startScanning();
-                }
-            });
-            debug(`Hub ${hub.uuid} discovered`);
-            /**
-             * Emits when a Powered UP Hub device is found.
-             * @event PoweredUP#discover
-             * @param {WeDo2SmartHub | MoveHub | TechnicMediumHub | RemoteControl | DuploTrainBase} hub
-             */
-            this.emit("discover", hub);
+        // device.on("discoverComplete", () => {
+        hub.on("connect", () => {
+            debug(`Hub ${hub.uuid} connected`);
+            this._connectedHubs[hub.uuid] = hub;
         });
+        hub.on("disconnect", () => {
+            debug(`Hub ${hub.uuid} disconnected`);
+            delete this._connectedHubs[hub.uuid];
+            if (wantScan) {
+                startScanning();
+            }
+        });
+        debug(`Hub ${hub.uuid} discovered`);
+        /**
+         * Emits when a Powered UP Hub device is found.
+         * @event PoweredUP#discover
+         * @param {WeDo2SmartHub | MoveHub | TechnicMediumHub | RemoteControl | DuploTrainBase} hub
+         */
+        this.emit("discover", hub);
+        // });
     }
 }
 exports.PoweredUP = PoweredUP;

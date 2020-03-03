@@ -160,6 +160,7 @@ export class Device extends EventEmitter {
         // this.values[event] = values;
         // this.emit(event, values);
         if (this.hub.listenerCount(event) > 0) {
+            console.log({event,this,values})
             this.hub.emit(event, this, values);
         }
     }

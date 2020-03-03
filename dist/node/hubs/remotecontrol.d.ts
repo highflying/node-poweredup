@@ -10,7 +10,7 @@ import { LPF2Hub } from "./lpf2hub";
 export declare class RemoteControl extends LPF2Hub {
     static IsRemoteControl(peripheral: Peripheral): boolean;
     constructor(device: IBLEAbstraction);
-    connect(): Promise<unknown>;
+    connect(): Promise<void>;
 }
 export declare const PortMap: {
     [portName: string]: number;

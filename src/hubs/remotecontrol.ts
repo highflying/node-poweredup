@@ -38,7 +38,7 @@ export class RemoteControl extends LPF2Hub {
 
 
     public connect () {
-        return new Promise(async (resolve, reject) => {
+        return new Promise<void>(async (resolve, reject) => {
             debug("Connecting to Powered UP Remote");
             await super.connect();
             debug("Connect completed");

@@ -16,9 +16,10 @@
   "author": "Nathan Kellenicki <nathan@kellenicki.com>",
   "license": "MIT",
   "dependencies": {
+    "@abandonware/noble": "1.9.2-5",
     "compare-versions": "^3.5.1",
     "debug": "^4.1.1",
-    "@abandonware/noble": "1.9.2-5"
+    "p-limit": "^2.2.2"
   },
   "devDependencies": {
     "@types/debug": "4.1.5",

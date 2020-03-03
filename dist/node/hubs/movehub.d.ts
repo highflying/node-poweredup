@@ -10,7 +10,7 @@ import { LPF2Hub } from "./lpf2hub";
 export declare class MoveHub extends LPF2Hub {
     static IsMoveHub(peripheral: Peripheral): boolean;
     constructor(device: IBLEAbstraction);
-    connect(): Promise<unknown>;
+    connect(): Promise<void>;
     protected _checkFirmware(version: string): void;
 }
 export declare const PortMap: {

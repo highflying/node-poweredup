@@ -1,7 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const Debug = require("debug");
 const events_1 = require("events");
+const p_limit_1 = __importDefault(require("p-limit"));
+const limit = p_limit_1.default(1);
 const debug = Debug("bledevice");
 class NobleDevice extends events_1.EventEmitter {
     constructor(device) {
@@ -101,7 +106,7 @@ class NobleDevice extends events_1.EventEmitter {
         });
     }
     writeToCharacteristic(uuid, data) {
-        return new Promise((resolve, reject) => {
+        return limit(() => new Promise((resolve, reject) => {
             uuid = this._sanitizeUUID(uuid);
             this._characteristics[uuid].write(data, false, (error => { if (error) {
                 reject(error);
@@ -109,7 +114,7 @@ class NobleDevice extends events_1.EventEmitter {
             else {
                 resolve();
             } }));
-        });
+        }));
     }
     _sanitizeUUID(uuid) {
         return uuid.replace(/-/g, "");

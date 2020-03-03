@@ -11,7 +11,7 @@ export declare class Hub extends LPF2Hub {
     static IsHub(peripheral: Peripheral): boolean;
     protected _currentPort: number;
     constructor(device: IBLEAbstraction);
-    connect(): Promise<unknown>;
+    connect(): Promise<void>;
     protected _checkFirmware(version: string): void;
 }
 export declare const PortMap: {

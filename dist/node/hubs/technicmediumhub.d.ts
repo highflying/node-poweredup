@@ -10,7 +10,7 @@ import { LPF2Hub } from "./lpf2hub";
 export declare class TechnicMediumHub extends LPF2Hub {
     static IsTechnicMediumHub(peripheral: Peripheral): boolean;
     constructor(device: IBLEAbstraction);
-    connect(): Promise<unknown>;
+    connect(): Promise<void>;
 }
 export declare const PortMap: {
     [portName: string]: number;

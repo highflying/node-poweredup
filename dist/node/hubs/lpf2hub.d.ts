@@ -7,7 +7,7 @@ import { BaseHub } from "./basehub";
 export declare class LPF2Hub extends BaseHub {
     private _messageBuffer;
     private _propertyRequestCallbacks;
-    connect(): Promise<unknown>;
+    connect(): Promise<void>;
     /**
      * Shutdown the Hub.
      * @method LPF2Hub#shutdown

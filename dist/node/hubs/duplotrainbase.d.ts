@@ -10,7 +10,7 @@ import { IBLEAbstraction } from "../interfaces";
 export declare class DuploTrainBase extends LPF2Hub {
     static IsDuploTrainBase(peripheral: Peripheral): boolean;
     constructor(device: IBLEAbstraction);
-    connect(): Promise<unknown>;
+    connect(): Promise<void>;
 }
 export declare const PortMap: {
     [portName: string]: number;

@@ -26,12 +26,12 @@ export class LPF2Hub extends BaseHub {
             await super.connect();
             await this._bleDevice.discoverCharacteristicsForService(Consts.BLEService.LPF2_HUB);
             this._bleDevice.subscribeToCharacteristic(Consts.BLECharacteristic.LPF2_ALL, this._parseMessage.bind(this));
-            await this.sleep(1000);
-            this._requestHubPropertyReports(0x02); // Activate button reports
+            // await this.sleep(1000);
+            await this._requestHubPropertyReports(0x02); // Activate button reports
             await this._requestHubPropertyValue(0x03); // Request firmware version
             await this._requestHubPropertyValue(0x04); // Request hardware version
-            this._requestHubPropertyReports(0x05); // Activate RSSI updates
-            this._requestHubPropertyReports(0x06); // Activate battery level reports
+            await this._requestHubPropertyReports(0x05); // Activate RSSI updates
+            await this._requestHubPropertyReports(0x06); // Activate battery level reports
             await this._requestHubPropertyValue(0x0d); // Request primary MAC address
             this.emit("connect");
             debug("LPF2Hub connected");

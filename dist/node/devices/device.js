@@ -133,7 +133,7 @@ class Device extends events_1.EventEmitter {
     }
     notify(event, values) {
         // this.values[event] = values;
-        // this.emit(event, values);
+        this.emit(event, values);
         if (this.hub.listenerCount(event) > 0) {
             console.log({ event, this: this, values });
             this.hub.emit(event, this, values);

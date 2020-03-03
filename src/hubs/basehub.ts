@@ -320,10 +320,8 @@ export class BaseHub extends EventEmitter {
     }
 
 
-    public send (message: Buffer, uuid: string, callback?: () => void) {
-        if (callback) {
-            callback();
-        }
+    public async send (message: Buffer, uuid: string) {
+        return;
     }
 
 

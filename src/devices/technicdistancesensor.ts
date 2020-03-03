@@ -54,7 +54,7 @@ export class TechnicDistanceSensor extends Device {
      * @returns {Promise} Resolved upon successful issuance of the command.
      */
     public setBrightness (topLeft: number, bottomLeft: number, topRight: number, bottomRight: number) {
-        this.writeDirect(0x05, Buffer.from([topLeft, topRight, bottomLeft, bottomRight]));
+        return this.writeDirect(0x05, Buffer.from([topLeft, topRight, bottomLeft, bottomRight]));
     }
 
 }

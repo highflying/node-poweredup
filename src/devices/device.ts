@@ -11,7 +11,7 @@ import * as Consts from "../consts";
 export class Device extends EventEmitter {
 
     public autoSubscribe: boolean = true;
-    public values: {[event: string]: any} = {};
+    // public values: {[event: string]: any} = {};
 
     protected _mode: number | undefined;
     protected _busy: boolean = false;
@@ -126,21 +126,22 @@ export class Device extends EventEmitter {
         return this._isVirtualPort;
     }
 
-    public writeDirect (mode: number, data: Buffer, callback?: () => void) {
+    public writeDirect (mode: number, data: Buffer) {
         if (this.isWeDo2SmartHub) {
-            this.send(Buffer.concat([Buffer.from([this.portId, 0x01, 0x02]), data]), Consts.BLECharacteristic.WEDO2_MOTOR_VALUE_WRITE);
+            return this.send(Buffer.concat([Buffer.from([this.portId, 0x01, 0x02]), data]), Consts.BLECharacteristic.WEDO2_MOTOR_VALUE_WRITE);
         } else {
-            this.send(Buffer.concat([Buffer.from([0x81, this.portId, 0x11, 0x51, mode]), data]), Consts.BLECharacteristic.LPF2_ALL, callback);
+            return this.send(Buffer.concat([Buffer.from([0x81, this.portId, 0x11, 0x51, mode]), data]), Consts.BLECharacteristic.LPF2_ALL);
         }
     }
 
-    public send (data: Buffer, characteristic: string = Consts.BLECharacteristic.LPF2_ALL, callback?: () => void) {
+    public send (data: Buffer, characteristic: string = Consts.BLECharacteristic.LPF2_ALL) {
         this._ensureConnected();
-        this.hub.send(data, characteristic, callback);
+        return this.hub.send(data, characteristic);
     }
 
     public subscribe (mode: number) {
         this._ensureConnected();
+        console.log('subscribe', this.portId, this.type, mode)
         if (mode !== this._mode) {
             this._mode = mode;
             this.hub.subscribe(this.portId, this.type, mode);
@@ -156,8 +157,8 @@ export class Device extends EventEmitter {
     }
 
     public notify (event: string, values: any) {
-        this.values[event] = values;
-        this.emit(event, values);
+        // this.values[event] = values;
+        // this.emit(event, values);
         if (this.hub.listenerCount(event) > 0) {
             this.hub.emit(event, this, values);
         }

@@ -137,7 +137,7 @@ export class PoweredUP extends EventEmitter {
                     const message = buf.slice(0, len);
                     buf = buf.slice(len);
                     if (message[2] === 0x01 && message[3] === 0x0b) {
-                        process.nextTick(() => {
+                        setImmediate(() => {
                             switch (message[5]) {
                                 case Consts.BLEManufacturerData.REMOTE_CONTROL_ID:
                                     resolve(Consts.HubType.REMOTE_CONTROL);

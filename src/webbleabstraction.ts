@@ -134,12 +134,8 @@ export class WebBLEDevice extends EventEmitter implements IBLEAbstraction {
     }
 
 
-    public writeToCharacteristic (uuid: string, data: Buffer, callback?: () => void) {
-        this._queue = this._queue.then(() => this._characteristics[uuid].writeValue(data)).then(() => {
-            if (callback) {
-                callback();
-            }
-        });
+    public writeToCharacteristic (uuid: string, data: Buffer) {
+        return this._queue = this._queue.then(() => this._characteristics[uuid].writeValue(data));
     }
 
 

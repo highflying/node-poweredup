@@ -3,6 +3,7 @@ import { Characteristic, Peripheral, Service } from "@abandonware/noble";
 import Debug = require("debug");
 import { EventEmitter } from "events";
 import { IBLEAbstraction } from "./interfaces";
+import {rejects} from "assert";
 const debug = Debug("bledevice");
 
 
@@ -135,9 +136,11 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
     }
 
 
-    public writeToCharacteristic (uuid: string, data: Buffer, callback?: () => void) {
+    public writeToCharacteristic (uuid: string, data: Buffer) {
+        return new Promise<void>((resolve, reject) => {
         uuid = this._sanitizeUUID(uuid);
-        this._characteristics[uuid].write(data, false, callback);
+        this._characteristics[uuid].write(data, false, (error => { if(error) { reject(error) } else { resolve()} }));
+        })
     }
 
 

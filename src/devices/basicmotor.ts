@@ -28,10 +28,10 @@ export class BasicMotor extends Device {
         if (interrupt) {
             this.cancelEventTimer();
         }
-        return new Promise((resolve) => {
-            this.writeDirect(0x00, Buffer.from([mapSpeed(power)]));
-            return resolve();
-        });
+        // return new Promise((resolve) => {
+            return this.writeDirect(0x00, Buffer.from([mapSpeed(power)]));
+            // return resolve();
+        // });
     }
 
 
@@ -47,10 +47,16 @@ export class BasicMotor extends Device {
         this.cancelEventTimer();
         return new Promise((resolve) => {
             calculateRamp(this, fromPower, toPower, time)
-            .on("changePower", (power) => {
-                this.setPower(power, false);
+            .on("changePower", async (power) => {
+                // console.log(`[${(this.hub as any).name}] power to ${power}`)
+                await this.setPower(power, false);
+                // console.log(`[${(this.hub as any).name}] power now ${power}`)
             })
-            .on("finished", resolve);
+            .on("finished", () => {
+                
+                // console.log(`[${(this.hub as any).name}] finished`)
+                resolve();
+            });
         });
     }
 

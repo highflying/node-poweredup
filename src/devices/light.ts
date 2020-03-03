@@ -27,10 +27,10 @@ export class Light extends Device {
         if (interrupt) {
             this.cancelEventTimer();
         }
-        return new Promise((resolve) => {
-            this.writeDirect(0x00, Buffer.from([brightness]));
-            return resolve();
-        });
+        // return new Promise((resolve) => {
+            return this.writeDirect(0x00, Buffer.from([brightness]));
+            // return resolve();
+        // });
     }
 
 

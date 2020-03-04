@@ -11,7 +11,8 @@ import * as Consts from "../consts";
 export class Device extends EventEmitter {
 
     public autoSubscribe: boolean = true;
-    public values: {[event: string]: any} = {};
+    // Not sure why this is needed?
+    // public values: {[event: string]: any} = {};
 
     protected _mode: number | undefined;
     protected _busy: boolean = false;
@@ -156,7 +157,7 @@ export class Device extends EventEmitter {
     }
 
     public notify (event: string, values: any) {
-        this.values[event] = values;
+        // this.values[event] = values;
         this.emit(event, values);
         if (this.hub.listenerCount(event) > 0) {
             this.hub.emit(event, this, values);

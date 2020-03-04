@@ -41,7 +41,7 @@ export class WeDo2SmartHub extends BaseHub {
 
 
     public connect () {
-        return new Promise<void>(async (resolve, reject) => {
+        return new Promise<void>(async (resolve) => {
             debug("Connecting to WeDo 2.0 Smart Hub");
             await super.connect();
             await this._bleDevice.discoverCharacteristicsForService(Consts.BLEService.WEDO2_SMART_HUB);
@@ -56,6 +56,7 @@ export class WeDo2SmartHub extends BaseHub {
             }
             debug("Connect completed");
             this.emit("connect");
+            // TODO remove this?
             resolve();
             this._bleDevice.subscribeToCharacteristic(Consts.BLECharacteristic.WEDO2_PORT_TYPE, this._parsePortMessage.bind(this));
             this._bleDevice.subscribeToCharacteristic(Consts.BLECharacteristic.WEDO2_SENSOR_VALUE, this._parseSensorMessage.bind(this));
@@ -109,18 +110,15 @@ export class WeDo2SmartHub extends BaseHub {
      * @param {string} name New name of the hub (14 characters or less, ASCII only).
      * @returns {Promise} Resolved upon successful issuance of command.
      */
-    public setName (name: string) {
+    public async setName (name: string) {
         if (name.length > 14) {
             throw new Error("Name must be 14 characters or less");
         }
-        return new Promise((resolve, reject) => {
-            const data = Buffer.from(name, "ascii");
-            // Send this twice, as sometimes the first time doesn't take
-            this.send(data, Consts.BLECharacteristic.WEDO2_NAME_ID);
-            this.send(data, Consts.BLECharacteristic.WEDO2_NAME_ID);
-            this._name = name;
-            return resolve();
-        });
+        const data = Buffer.from(name, "ascii");
+        // Send this twice, as sometimes the first time doesn't take
+        await this.send(data, Consts.BLECharacteristic.WEDO2_NAME_ID);
+        await this.send(data, Consts.BLECharacteristic.WEDO2_NAME_ID);
+        this._name = name;
     }
 
 
@@ -133,12 +131,12 @@ export class WeDo2SmartHub extends BaseHub {
 
 
     public subscribe (portId: number, deviceType: number, mode: number) {
-        this.send(Buffer.from([0x01, 0x02, portId, deviceType, mode, 0x01, 0x00, 0x00, 0x00, 0x00, 0x01]), Consts.BLECharacteristic.WEDO2_PORT_TYPE_WRITE);
+        return this.send(Buffer.from([0x01, 0x02, portId, deviceType, mode, 0x01, 0x00, 0x00, 0x00, 0x00, 0x01]), Consts.BLECharacteristic.WEDO2_PORT_TYPE_WRITE);
     }
 
 
     public unsubscribe (portId: number, deviceType: number, mode: number) {
-        this.send(Buffer.from([0x01, 0x02, portId, deviceType, mode, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00]), Consts.BLECharacteristic.WEDO2_PORT_TYPE_WRITE);
+        return this.send(Buffer.from([0x01, 0x02, portId, deviceType, mode, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00]), Consts.BLECharacteristic.WEDO2_PORT_TYPE_WRITE);
     }
 
 

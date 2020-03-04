@@ -61,7 +61,7 @@ export class TachoMotor extends BasicMotor {
             throw new Error("Motor speed is not available on the WeDo 2.0 Smart Hub");
         }
         this.cancelEventTimer();
-        return new Promise((resolve) => {
+        return new Promise(async (resolve) => {
             this._busy = true;
             if (speed === undefined || speed === null) {
                 speed = 100;
@@ -81,10 +81,10 @@ export class TachoMotor extends BasicMotor {
                     message = Buffer.from([0x81, this.portId, 0x11, 0x07, mapSpeed(speed), 0x64, 0x03, 0x64, this._brakeStyle, 0x00]);
                 }
             }
-            this.send(message);
             this._finished = () => {
                 return resolve();
             };
+            await this.send(message);
         });
     }
 
@@ -103,7 +103,7 @@ export class TachoMotor extends BasicMotor {
             throw new Error("Rotation is not available on the WeDo 2.0 Smart Hub");
         }
         this.cancelEventTimer();
-        return new Promise((resolve) => {
+        return new Promise(async (resolve) => {
             this._busy = true;
             if (speed === undefined || speed === null) {
                 speed = 100;
@@ -115,10 +115,10 @@ export class TachoMotor extends BasicMotor {
                 message = Buffer.from([0x81, this.portId, 0x11, 0x0b, 0x00, 0x00, 0x00, 0x00, mapSpeed(speed), 0x64, this._brakeStyle, 0x03]);
             }
             message.writeUInt32LE(degrees, 4);
-            this.send(message);
             this._finished = () => {
                 return resolve();
             };
+            await this.send(message);
         });
     }
 

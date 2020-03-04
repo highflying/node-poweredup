@@ -78,8 +78,7 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
 
     public disconnect () {
         return new Promise<void>((resolve) => {
-            this._noblePeripheral.disconnect();
-            return resolve();
+            this._noblePeripheral.disconnect(resolve);
         });
     }
 

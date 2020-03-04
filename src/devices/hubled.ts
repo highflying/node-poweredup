@@ -22,20 +22,17 @@ export class HubLED extends Device {
      * @param {Color} color
      * @returns {Promise} Resolved upon successful issuance of the command.
      */
-    public setColor (color: number | boolean) {
-        return new Promise((resolve, reject) => {
-            if (typeof color === "boolean") {
-                color = 0;
-            }
-            if (this.isWeDo2SmartHub) {
-                this.send(Buffer.from([0x06, 0x17, 0x01, 0x01]), Consts.BLECharacteristic.WEDO2_PORT_TYPE_WRITE);
-                this.send(Buffer.from([0x06, 0x04, 0x01, color]), Consts.BLECharacteristic.WEDO2_MOTOR_VALUE_WRITE);
-            } else {
-                this.subscribe(Mode.COLOR);
-                this.writeDirect(0x00, Buffer.from([color]));
-            }
-            return resolve();
-        });
+    public async setColor (color: number | boolean) {
+        if (typeof color === "boolean") {
+            color = 0;
+        }
+        if (this.isWeDo2SmartHub) {
+            await this.send(Buffer.from([0x06, 0x17, 0x01, 0x01]), Consts.BLECharacteristic.WEDO2_PORT_TYPE_WRITE);
+            await this.send(Buffer.from([0x06, 0x04, 0x01, color]), Consts.BLECharacteristic.WEDO2_MOTOR_VALUE_WRITE);
+        } else {
+            this.subscribe(Mode.COLOR);
+            await this.writeDirect(0x00, Buffer.from([color]));
+        }
     }
 
 

@@ -65,7 +65,8 @@ export class NobleDevice extends EventEmitter implements IBLEAbstraction {
             this._connecting = true;
             this._noblePeripheral.connect((err: string) => {
                 if(err) {
-                    return reject(err);
+                    console.error(err);
+                    // return reject(err);
                 }
 
                 this._connecting = false;

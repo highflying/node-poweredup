@@ -41,7 +41,7 @@ export class WeDo2SmartHub extends BaseHub {
 
 
     public connect () {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             debug("Connecting to WeDo 2.0 Smart Hub");
             await super.connect();
             await this._bleDevice.discoverCharacteristicsForService(Consts.BLEService.WEDO2_SMART_HUB);

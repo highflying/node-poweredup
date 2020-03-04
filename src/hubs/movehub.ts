@@ -38,7 +38,7 @@ export class MoveHub extends LPF2Hub {
 
 
     public connect () {
-        return new Promise<void>(async (resolve, reject) => {
+        return new Promise<void>(async (resolve) => {
             debug("Connecting to Move Hub");
             await super.connect();
             debug("Connect completed");

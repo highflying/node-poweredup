@@ -58,7 +58,7 @@ export class WebBLEDevice extends EventEmitter implements IBLEAbstraction {
 
 
     public connect () {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             this._connected = true;
             return resolve();
         });
@@ -66,7 +66,7 @@ export class WebBLEDevice extends EventEmitter implements IBLEAbstraction {
 
 
     public disconnect () {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             this._webBLEServer.device.gatt.disconnect();
             return resolve();
         });

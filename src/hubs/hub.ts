@@ -40,7 +40,7 @@ export class Hub extends LPF2Hub {
 
 
     public connect () {
-        return new Promise<void>(async (resolve, reject) => {
+        return new Promise<void>(async (resolve) => {
             debug("Connecting to Powered UP Hub");
             await super.connect();
             debug("Connect completed");

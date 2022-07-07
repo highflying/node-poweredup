@@ -147,7 +147,6 @@ export class Device extends EventEmitter {
     public subscribe (mode: number) {
         this._ensureConnected();
         if (mode !== this._mode) {
-            this._mode = mode;
             this.hub.subscribe(this.portId, this.type, mode);
         }
     }
@@ -228,6 +227,10 @@ export class Device extends EventEmitter {
         this._nextPortOutputCommands.push(command);
         process.nextTick(() => this.transmitNextPortOutputCommand());
         return command.promise;
+    }
+
+    public setMode (message: number) {
+        this._mode = message;
     }
 
     public addPortOutputSleep(duration: number) {

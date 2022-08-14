@@ -93,7 +93,11 @@
     <pre class="prettyprint source linenums"><code>"use strict";
 var __createBinding = (this &amp;&amp; this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -250,7 +254,7 @@ class ColorDistanceSensor extends device_1.Device {
      * NOTE: Calling this with channel 5-8 with switch off extended channel mode for this receiver.
      * @method ColorDistanceSensor#setPFExtendedChannel
      * @param {number} channel Channel number, between 1-8
-     * @returns {Promise} Resolved upon successful issuance of the command.
+     * @returns {Promise&lt;CommandFeedback>} Resolved upon completion of the command.
      */
     setPFExtendedChannel(channel) {
         let address = 0;
@@ -270,7 +274,7 @@ class ColorDistanceSensor extends device_1.Device {
      * @param {number} channel Channel number, between 1-4
      * @param {string} output Outport port, "RED" (A) or "BLUE" (B)
      * @param {number} power -7 (full reverse) to 7 (full forward). 0 is stop. 8 is brake.
-     * @returns {Promise} Resolved upon successful issuance of the command.
+     * @returns {Promise&lt;CommandFeedback>} Resolved upon completion of the command.
      */
     setPFPower(channel, output, power) {
         let address = 0;
@@ -292,7 +296,7 @@ class ColorDistanceSensor extends device_1.Device {
      * @param {Buffer} channel Channel number, between 1-4
      * @param {Buffer} powerA -7 (full reverse) to 7 (full forward). 0 is stop. 8 is brake.
      * @param {Buffer} powerB -7 (full reverse) to 7 (full forward). 0 is stop. 8 is brake.
-     * @returns {Promise} Resolved upon successful issuance of the command.
+     * @returns {Promise&lt;CommandFeedback>} Resolved upon completion of the command.
      */
     startPFMotors(channel, powerBlue, powerRed) {
         let address = 0;
@@ -310,7 +314,7 @@ class ColorDistanceSensor extends device_1.Device {
      * Send a raw Power Functions IR command
      * @method ColorDistanceSensor#sendPFIRMessage
      * @param {Buffer} message 2 byte payload making up a Power Functions protocol command. NOTE: Only specify nibbles 1-3, nibble 4 should be zeroed.
-     * @returns {Promise} Resolved upon successful issuance of the command.
+     * @returns {Promise&lt;CommandFeedback>} Resolved upon completion of the command.
      */
     sendPFIRMessage(message) {
         if (this.isWeDo2SmartHub) {
@@ -328,42 +332,36 @@ class ColorDistanceSensor extends device_1.Device {
      * Set the color of the LED on the sensor via a color value.
      * @method ColorDistanceSensor#setColor
      * @param {Color} color
-     * @returns {Promise} Resolved upon successful issuance of the command.
+     * @returns {Promise&lt;CommandFeedback>} Resolved upon completion of the command.
      */
     setColor(color) {
-        return new Promise((resolve) => {
-            if (color === false) {
-                color = 0;
-            }
-            if (this.isWeDo2SmartHub) {
-                throw new Error("Setting LED color is not available on the WeDo 2.0 Smart Hub");
-            }
-            else {
-                this.subscribe(Mode.LED);
-                this.writeDirect(0x05, Buffer.from([color]));
-            }
-            return resolve();
-        });
+        if (color === false) {
+            color = 0;
+        }
+        if (this.isWeDo2SmartHub) {
+            throw new Error("Setting LED color is not available on the WeDo 2.0 Smart Hub");
+        }
+        else {
+            this.subscribe(Mode.LED);
+            return this.writeDirect(0x05, Buffer.from([color]));
+        }
     }
     /**
      * Set the distance count value.
      * @method ColorDistanceSensor#setDistanceCount
      * @param {count} distance count between 0 and 2^32
-     * @returns {Promise} Resolved upon successful issuance of the command.
+     * @returns {Promise&lt;CommandFeedback>} Resolved upon completion of the command.
      */
     setDistanceCount(count) {
-        return new Promise((resolve) => {
-            if (this.isWeDo2SmartHub) {
-                throw new Error("Setting distance count is not available on the WeDo 2.0 Smart Hub");
-            }
-            else {
-                const payload = Buffer.alloc(4);
-                payload.writeUInt32LE(count % 2 ** 32);
-                // no need to subscribe, can be set in different mode
-                this.writeDirect(0x02, payload);
-            }
-            return resolve();
-        });
+        if (this.isWeDo2SmartHub) {
+            throw new Error("Setting distance count is not available on the WeDo 2.0 Smart Hub");
+        }
+        else {
+            const payload = Buffer.alloc(4);
+            payload.writeUInt32LE(count % 2 ** 32);
+            // no need to subscribe, can be set in different mode
+            return this.writeDirect(0x02, payload);
+        }
     }
     _pfPowerToPWM(power) {
         return power &amp; 15;
@@ -408,7 +406,7 @@ var Output;
   <br class="clear">
 
   <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a>
   </footer>
 
   <script src="scripts/linenumber.js"></script>

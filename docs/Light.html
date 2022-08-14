@@ -161,7 +161,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_light.js.html">devices/light.js</a>, <a href="devices_light.js.html#line26">line 26</a>
+          <a href="devices_light.js.html">devices/light.js</a>, <a href="devices_light.js.html#line30">line 30</a>
         </li>
       </ul>
     </dd>
@@ -325,7 +325,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line76">line 76</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line84">line 84</a>
         </li>
       </ul>
     </dd>
@@ -455,7 +455,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line83">line 83</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line91">line 91</a>
         </li>
       </ul>
     </dd>
@@ -585,7 +585,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line120">line 120</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line128">line 128</a>
         </li>
       </ul>
     </dd>
@@ -715,7 +715,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line110">line 110</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line118">line 118</a>
         </li>
       </ul>
     </dd>
@@ -845,7 +845,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line93">line 93</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line101">line 101</a>
         </li>
       </ul>
     </dd>
@@ -975,7 +975,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line100">line 100</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line108">line 108</a>
         </li>
       </ul>
     </dd>
@@ -1013,7 +1013,7 @@
       </svg>
     </a>
     <h4 class="name" id="rampBrightness">
-      <span class="type-signature"></span>rampBrightness<span class="signature">(fromBrightness, toBrightness, time)</span><span class="type-signature"> &rarr; {Promise}</span>
+      <span class="type-signature"></span>rampBrightness<span class="signature">(fromBrightness, toBrightness, time)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#CommandFeedback">CommandFeedback</a>>}</span>
     </h4>
   </span>
 
@@ -1217,7 +1217,7 @@
       </svg>
     </a>
     <h4 class="name" id="setBrightness">
-      <span class="type-signature"></span>setBrightness<span class="signature">(brightness)</span><span class="type-signature"> &rarr; {Promise}</span>
+      <span class="type-signature"></span>setBrightness<span class="signature">(brightness, brightness, interrupt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#CommandFeedback">CommandFeedback</a>>}</span>
     </h4>
   </span>
 
@@ -1248,7 +1248,11 @@
       <th>Type</th>
 
       
+        <th>Attributes</th>
+      
 
+      
+        <th>Default</th>
       
 
       <th class="last">Description</th>
@@ -1276,11 +1280,109 @@
         </td>
 
         
+          <td class="attributes">
+            
 
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
         
 
         <td class="description last">
           <p>Brightness value between 0-100 (0 is off)</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>brightness</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      number
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+          <td class="attributes">
+            
+
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>Brightness value between 0-100 (0 is off)</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>interrupt</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      boolean
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+          <td class="attributes">
+            
+              &lt;optional><br>
+            
+
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+              false
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>If true, previous commands are discarded.</p>
           
         </td>
       </tr>
@@ -1324,7 +1426,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_light.js.html">devices/light.js</a>, <a href="devices_light.js.html#line34">line 34</a>
+          <a href="devices_light.js.html">devices/light.js</a>, <a href="devices_light.js.html#line38">line 38</a>
         </li>
       </ul>
     </dd>
@@ -1367,7 +1469,7 @@
   <br class="clear">
 
   <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a>
   </footer>
 
   <script src="scripts/linenumber.js"></script>

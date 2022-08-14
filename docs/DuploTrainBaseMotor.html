@@ -161,7 +161,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_duplotrainbasemotor.js.html">devices/duplotrainbasemotor.js</a>, <a href="devices_duplotrainbasemotor.js.html#line25">line 25</a>
+          <a href="devices_duplotrainbasemotor.js.html">devices/duplotrainbasemotor.js</a>, <a href="devices_duplotrainbasemotor.js.html#line29">line 29</a>
         </li>
       </ul>
     </dd>
@@ -325,7 +325,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line76">line 76</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line84">line 84</a>
         </li>
       </ul>
     </dd>
@@ -455,7 +455,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line83">line 83</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line91">line 91</a>
         </li>
       </ul>
     </dd>
@@ -585,7 +585,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line120">line 120</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line128">line 128</a>
         </li>
       </ul>
     </dd>
@@ -715,7 +715,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line110">line 110</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line118">line 118</a>
         </li>
       </ul>
     </dd>
@@ -845,7 +845,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line93">line 93</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line101">line 101</a>
         </li>
       </ul>
     </dd>
@@ -975,7 +975,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line100">line 100</a>
+          <a href="devices_device.js.html">devices/device.js</a>, <a href="devices_device.js.html#line108">line 108</a>
         </li>
       </ul>
     </dd>
@@ -1013,7 +1013,7 @@
       </svg>
     </a>
     <h4 class="name" id="brake">
-      <span class="type-signature"></span>brake<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span>
+      <span class="type-signature"></span>brake<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#CommandFeedback">CommandFeedback</a>>}</span>
     </h4>
   </span>
 
@@ -1022,7 +1022,7 @@
 
 
   <div class="description">
-    <p>Brake the motor.</p>
+    <p>Brake the motor. Previous commands that have not completed are discarded.</p>
   </div>
 
 
@@ -1074,7 +1074,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_basicmotor.js.html">devices/basicmotor.js</a>, <a href="devices_basicmotor.js.html#line73">line 73</a>
+          <a href="devices_basicmotor.js.html">devices/basicmotor.js</a>, <a href="devices_basicmotor.js.html#line72">line 72</a>
         </li>
       </ul>
     </dd>
@@ -1113,7 +1113,7 @@
       </svg>
     </a>
     <h4 class="name" id="rampPower">
-      <span class="type-signature"></span>rampPower<span class="signature">(fromPower, toPower, time)</span><span class="type-signature"> &rarr; {Promise}</span>
+      <span class="type-signature"></span>rampPower<span class="signature">(fromPower, toPower, time)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#CommandFeedback">CommandFeedback</a>>}</span>
     </h4>
   </span>
 
@@ -1287,7 +1287,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_basicmotor.js.html">devices/basicmotor.js</a>, <a href="devices_basicmotor.js.html#line46">line 46</a>
+          <a href="devices_basicmotor.js.html">devices/basicmotor.js</a>, <a href="devices_basicmotor.js.html#line48">line 48</a>
         </li>
       </ul>
     </dd>
@@ -1326,7 +1326,7 @@
       </svg>
     </a>
     <h4 class="name" id="setPower">
-      <span class="type-signature"></span>setPower<span class="signature">(power)</span><span class="type-signature"> &rarr; {Promise}</span>
+      <span class="type-signature"></span>setPower<span class="signature">(power, interrupt<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#CommandFeedback">CommandFeedback</a>>}</span>
     </h4>
   </span>
 
@@ -1357,7 +1357,11 @@
       <th>Type</th>
 
       
+        <th>Attributes</th>
+      
 
+      
+        <th>Default</th>
       
 
       <th class="last">Description</th>
@@ -1385,11 +1389,68 @@
         </td>
 
         
+          <td class="attributes">
+            
 
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+          </td>
         
 
         <td class="description last">
           <p>For forward, a value between 1 - 100 should be set. For reverse, a value between -1 to -100. Stop is 0.</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>interrupt</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      boolean
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+          <td class="attributes">
+            
+              &lt;optional><br>
+            
+
+            
+
+            
+          </td>
+        
+
+        
+          <td class="default">
+            
+              false
+            
+          </td>
+        
+
+        <td class="description last">
+          <p>If true, previous commands are discarded.</p>
           
         </td>
       </tr>
@@ -1442,7 +1503,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="devices_basicmotor.js.html">devices/basicmotor.js</a>, <a href="devices_basicmotor.js.html#line34">line 34</a>
+          <a href="devices_basicmotor.js.html">devices/basicmotor.js</a>, <a href="devices_basicmotor.js.html#line38">line 38</a>
         </li>
       </ul>
     </dd>
@@ -1481,7 +1542,7 @@
       </svg>
     </a>
     <h4 class="name" id="stop">
-      <span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span>
+      <span class="type-signature"></span>stop<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#CommandFeedback">CommandFeedback</a>>}</span>
     </h4>
   </span>
 
@@ -1490,7 +1551,7 @@
 
 
   <div class="description">
-    <p>Stop the motor.</p>
+    <p>Stop the motor. Previous commands that have not completed are discarded.</p>
   </div>
 
 
@@ -1585,7 +1646,7 @@
   <br class="clear">
 
   <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a>
   </footer>
 
   <script src="scripts/linenumber.js"></script>

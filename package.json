@@ -1,6 +1,6 @@
 {
   "name": "@debenben/node-poweredup",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "A Javascript module to interface with LEGO Powered Up components.",
   "homepage": "https://github.com/nathankellenicki/node-poweredup/",
   "main": "dist/node/index-node.js",
@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "@types/debug": "4.1.7",
-    "@types/node": "^17.0.10",
-    "@types/web-bluetooth": "0.0.12",
+    "@types/node": "^18.7.3",
+    "@types/web-bluetooth": "0.0.15",
     "buffer": "^6.0.3",
     "jsdoc": "^3.5.5",
     "jsdoc-to-markdown": "^7.1.0",

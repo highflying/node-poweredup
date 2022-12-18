@@ -17,7 +17,13 @@ import { EventEmitter } from "events";
 
 import Debug = require("debug");
 const debug = Debug("poweredup");
-import noble = require("@abandonware/noble");
+
+const tempError = console.error;
+console.error = () => {return;}; // prevent output "ERROR: Could not load manufacturer list..."
+const noblePackage = require("@abandonware/noble"); // tslint:disable-line
+const noble = noblePackage({ extended: false });
+console.error = tempError;
+
 import { TechnicSmallHub } from "./hubs/technicsmallhub";
 
 let ready = false;

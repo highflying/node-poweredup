@@ -128,11 +128,7 @@ const Consts = __importStar(require("./consts"));
 const events_1 = require("events");
 const Debug = require("debug");
 const debug = Debug("poweredup");
-const tempError = console.error;
-console.error = () => { return; }; // prevent output "ERROR: Could not load manufacturer list..."
-const noblePackage = require("@abandonware/noble"); // tslint:disable-line
-const noble = noblePackage({ extended: false });
-console.error = tempError;
+const noble = require("@abandonware/noble");
 const technicsmallhub_1 = require("./hubs/technicsmallhub");
 let ready = false;
 let wantScan = false;

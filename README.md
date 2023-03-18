@@ -1,12 +1,9 @@
-[![Drone](https://drone.kellenicki.com/api/badges/nkellenicki/node-poweredup/status.svg)](https://drone.kellenicki.com/nkellenicki/node-poweredup)
-[![NPM Version](https://img.shields.io/npm/v/node-poweredup.svg?style=flat)](https://www.npmjs.com/package/node-poweredup)
-[![Docs](https://img.shields.io/badge/docs-start%20here-yellowgreen.svg)](https://nathan.kellenicki.com/node-poweredup/)
+[![NPM Version](https://img.shields.io/npm/v/node-poweredup.svg?style=flat)](https://www.npmjs.com/package/@debenben/node-poweredup)
+[![Docs](https://img.shields.io/badge/docs-start%20here-yellowgreen.svg)](https://debenben.github.io/node-poweredup)
 
 # **node-poweredup** - A Javascript module to interface with LEGO Powered Up components.
 
-### Announcements
-
-* v7.1.0 adds support for SPIKE Essential, including the Technic Small Hub, Technic Small Angular Motor, and Technic 3x3 Color Matrix.
+This is a fork of [node-poweredup](https://github.com/nathankellenicki/node-poweredup) with additional features and bugfixes.
 
 ### Introduction
 
@@ -61,7 +58,7 @@ More examples are available in the "examples" directory.
 
 ### Documentation
 
-[Full documentation is available here.](https://nathankellenicki.github.io/node-poweredup/)
+[Full documentation is available here.](https://debenben.github.io/node-poweredup/)
 
 ### Node.js Installation
 

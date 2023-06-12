@@ -160,7 +160,7 @@ exports.CurrentSensor = CurrentSensor;
 var Mode;
 (function (Mode) {
     Mode[Mode["CURRENT"] = 0] = "CURRENT";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "current": Mode.CURRENT
 };

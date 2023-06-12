@@ -222,7 +222,7 @@ var Mode;
 (function (Mode) {
     Mode[Mode["ROTATION"] = 2] = "ROTATION";
     Mode[Mode["ABSOLUTE"] = 3] = "ABSOLUTE";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "rotate": Mode.ROTATION,
     "absolute": Mode.ABSOLUTE

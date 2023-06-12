@@ -273,7 +273,7 @@ exports.TachoMotor = TachoMotor;
 var Mode;
 (function (Mode) {
     Mode[Mode["ROTATION"] = 2] = "ROTATION";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "rotate": Mode.ROTATION
 };

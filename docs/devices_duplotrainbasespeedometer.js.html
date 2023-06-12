@@ -146,7 +146,7 @@ exports.DuploTrainBaseSpeedometer = DuploTrainBaseSpeedometer;
 var Mode;
 (function (Mode) {
     Mode[Mode["SPEED"] = 0] = "SPEED";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "speed": Mode.SPEED
 };

@@ -168,7 +168,7 @@ var Mode;
     Mode[Mode["FORCE"] = 0] = "FORCE";
     Mode[Mode["TOUCHED"] = 1] = "TOUCHED";
     Mode[Mode["TAPPED"] = 2] = "TAPPED";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "force": Mode.FORCE,
     "touched": Mode.TOUCHED,

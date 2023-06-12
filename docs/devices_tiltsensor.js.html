@@ -207,7 +207,7 @@ var Mode;
     Mode[Mode["DIRECTION"] = 1] = "DIRECTION";
     Mode[Mode["CRASH"] = 2] = "CRASH";
     Mode[Mode["CAL"] = 3] = "CAL";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "tilt": Mode.TILT,
     "direction": Mode.DIRECTION,

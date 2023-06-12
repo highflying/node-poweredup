@@ -186,7 +186,7 @@ var Mode;
     Mode[Mode["COLOR"] = 1] = "COLOR";
     Mode[Mode["REFLECTIVITY"] = 2] = "REFLECTIVITY";
     Mode[Mode["RGB"] = 3] = "RGB";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "intensity": Mode.INTENSITY,
     "color": Mode.COLOR,

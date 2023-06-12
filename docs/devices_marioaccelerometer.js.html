@@ -161,7 +161,7 @@ var Mode;
 (function (Mode) {
     Mode[Mode["ACCEL"] = 0] = "ACCEL";
     Mode[Mode["GEST"] = 1] = "GEST";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "accel": Mode.ACCEL,
     "gesture": Mode.GEST,

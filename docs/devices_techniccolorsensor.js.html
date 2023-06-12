@@ -270,7 +270,7 @@ var Mode;
     Mode[Mode["RGB_I"] = 5] = "RGB_I";
     Mode[Mode["HSV"] = 6] = "HSV";
     Mode[Mode["SHSV"] = 7] = "SHSV";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "color": Mode.COLOR,
     "reflect": Mode.REFLECT,

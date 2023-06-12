@@ -160,7 +160,7 @@ exports.VoltageSensor = VoltageSensor;
 var Mode;
 (function (Mode) {
     Mode[Mode["VOLTAGE"] = 0] = "VOLTAGE";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "voltage": Mode.VOLTAGE
 };

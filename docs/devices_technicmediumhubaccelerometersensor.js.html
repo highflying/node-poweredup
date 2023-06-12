@@ -150,7 +150,7 @@ exports.TechnicMediumHubAccelerometerSensor = TechnicMediumHubAccelerometerSenso
 var Mode;
 (function (Mode) {
     Mode[Mode["ACCEL"] = 0] = "ACCEL";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "accel": Mode.ACCEL
 };

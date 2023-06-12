@@ -150,7 +150,7 @@ exports.MotionSensor = MotionSensor;
 var Mode;
 (function (Mode) {
     Mode[Mode["DISTANCE"] = 0] = "DISTANCE";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "distance": Mode.DISTANCE
 };

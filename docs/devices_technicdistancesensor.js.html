@@ -169,7 +169,7 @@ var Mode;
 (function (Mode) {
     Mode[Mode["DISTANCE"] = 0] = "DISTANCE";
     Mode[Mode["FAST_DISTANCE"] = 1] = "FAST_DISTANCE";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "distance": Mode.DISTANCE,
     "fastDistance": Mode.FAST_DISTANCE

@@ -208,7 +208,7 @@ var Mode;
 (function (Mode) {
     Mode[Mode["TILT"] = 0] = "TILT";
     Mode[Mode["IMPACT_COUNT"] = 1] = "IMPACT_COUNT";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "tilt": Mode.TILT,
     "impactCount": Mode.IMPACT_COUNT

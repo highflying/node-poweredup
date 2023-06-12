@@ -148,7 +148,7 @@ exports.MoveHubTiltSensor = MoveHubTiltSensor;
 var Mode;
 (function (Mode) {
     Mode[Mode["TILT"] = 0] = "TILT";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "tilt": Mode.TILT
 };

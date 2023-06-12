@@ -116,7 +116,7 @@ var HubType;
     HubType[HubType["TECHNIC_MEDIUM_HUB"] = 6] = "TECHNIC_MEDIUM_HUB";
     HubType[HubType["MARIO"] = 7] = "MARIO";
     HubType[HubType["TECHNIC_SMALL_HUB"] = 8] = "TECHNIC_SMALL_HUB";
-})(HubType = exports.HubType || (exports.HubType = {}));
+})(HubType || (exports.HubType = HubType = {}));
 // tslint:disable-next-line
 exports.HubTypeNames = HubType;
 /**
@@ -202,7 +202,7 @@ var DeviceType;
     DeviceType[DeviceType["MARIO_PANTS_SENSOR"] = 74] = "MARIO_PANTS_SENSOR";
     DeviceType[DeviceType["TECHNIC_MEDIUM_ANGULAR_MOTOR_GREY"] = 75] = "TECHNIC_MEDIUM_ANGULAR_MOTOR_GREY";
     DeviceType[DeviceType["TECHNIC_LARGE_ANGULAR_MOTOR_GREY"] = 76] = "TECHNIC_LARGE_ANGULAR_MOTOR_GREY";
-})(DeviceType = exports.DeviceType || (exports.DeviceType = {}));
+})(DeviceType || (exports.DeviceType = DeviceType = {}));
 // tslint:disable-next-line
 exports.DeviceTypeNames = DeviceType;
 /**
@@ -234,7 +234,7 @@ var Color;
     Color[Color["RED"] = 9] = "RED";
     Color[Color["WHITE"] = 10] = "WHITE";
     Color[Color["NONE"] = 255] = "NONE";
-})(Color = exports.Color || (exports.Color = {}));
+})(Color || (exports.Color = Color = {}));
 // tslint:disable-next-line
 exports.ColorNames = Color;
 /**
@@ -252,7 +252,7 @@ var ButtonState;
     ButtonState[ButtonState["UP"] = 1] = "UP";
     ButtonState[ButtonState["DOWN"] = 255] = "DOWN";
     ButtonState[ButtonState["STOP"] = 127] = "STOP";
-})(ButtonState = exports.ButtonState || (exports.ButtonState = {}));
+})(ButtonState || (exports.ButtonState = ButtonState = {}));
 /**
  * @typedef BrakingStyle
  * @property {number} FLOAT 0
@@ -264,7 +264,7 @@ var BrakingStyle;
     BrakingStyle[BrakingStyle["FLOAT"] = 0] = "FLOAT";
     BrakingStyle[BrakingStyle["HOLD"] = 126] = "HOLD";
     BrakingStyle[BrakingStyle["BRAKE"] = 127] = "BRAKE";
-})(BrakingStyle = exports.BrakingStyle || (exports.BrakingStyle = {}));
+})(BrakingStyle || (exports.BrakingStyle = BrakingStyle = {}));
 /**
  * @typedef DuploTrainBaseSound
  * @property {number} BRAKE 3
@@ -280,7 +280,7 @@ var DuploTrainBaseSound;
     DuploTrainBaseSound[DuploTrainBaseSound["WATER_REFILL"] = 7] = "WATER_REFILL";
     DuploTrainBaseSound[DuploTrainBaseSound["HORN"] = 9] = "HORN";
     DuploTrainBaseSound[DuploTrainBaseSound["STEAM"] = 10] = "STEAM";
-})(DuploTrainBaseSound = exports.DuploTrainBaseSound || (exports.DuploTrainBaseSound = {}));
+})(DuploTrainBaseSound || (exports.DuploTrainBaseSound = DuploTrainBaseSound = {}));
 var BLEManufacturerData;
 (function (BLEManufacturerData) {
     BLEManufacturerData[BLEManufacturerData["DUPLO_TRAIN_BASE_ID"] = 32] = "DUPLO_TRAIN_BASE_ID";
@@ -290,7 +290,7 @@ var BLEManufacturerData;
     BLEManufacturerData[BLEManufacturerData["MARIO_ID"] = 67] = "MARIO_ID";
     BLEManufacturerData[BLEManufacturerData["TECHNIC_MEDIUM_HUB_ID"] = 128] = "TECHNIC_MEDIUM_HUB_ID";
     BLEManufacturerData[BLEManufacturerData["TECHNIC_SMALL_HUB_ID"] = 131] = "TECHNIC_SMALL_HUB_ID";
-})(BLEManufacturerData = exports.BLEManufacturerData || (exports.BLEManufacturerData = {}));
+})(BLEManufacturerData || (exports.BLEManufacturerData = BLEManufacturerData = {}));
 var BLEService;
 (function (BLEService) {
     BLEService["WEDO2_SMART_HUB"] = "00001523-1212-efde-1523-785feabcd123";
@@ -299,7 +299,7 @@ var BLEService;
     BLEService["WEDO2_SMART_HUB_4"] = "180f";
     BLEService["WEDO2_SMART_HUB_5"] = "180a";
     BLEService["LPF2_HUB"] = "00001623-1212-efde-1623-785feabcd123";
-})(BLEService = exports.BLEService || (exports.BLEService = {}));
+})(BLEService || (exports.BLEService = BLEService = {}));
 var BLECharacteristic;
 (function (BLECharacteristic) {
     BLECharacteristic["WEDO2_BATTERY"] = "2a19";
@@ -316,7 +316,7 @@ var BLECharacteristic;
     BLECharacteristic["WEDO2_MOTOR_VALUE_WRITE"] = "00001565-1212-efde-1523-785feabcd123";
     BLECharacteristic["WEDO2_NAME_ID"] = "00001524-1212-efde-1523-785feabcd123";
     BLECharacteristic["LPF2_ALL"] = "00001624-1212-efde-1623-785feabcd123";
-})(BLECharacteristic = exports.BLECharacteristic || (exports.BLECharacteristic = {}));
+})(BLECharacteristic || (exports.BLECharacteristic = BLECharacteristic = {}));
 /**
  * @typedef MessageType
  * @property {number} HUB_PROPERTIES 0x01
@@ -369,7 +369,7 @@ var MessageType;
     MessageType[MessageType["VIRTUAL_PORT_SETUP"] = 97] = "VIRTUAL_PORT_SETUP";
     MessageType[MessageType["PORT_OUTPUT_COMMAND"] = 129] = "PORT_OUTPUT_COMMAND";
     MessageType[MessageType["PORT_OUTPUT_COMMAND_FEEDBACK"] = 130] = "PORT_OUTPUT_COMMAND_FEEDBACK";
-})(MessageType = exports.MessageType || (exports.MessageType = {}));
+})(MessageType || (exports.MessageType = MessageType = {}));
 /**
  * @typedef HubPropertyReference
  * @param {number} ADVERTISING_NAME 0x01
@@ -406,7 +406,7 @@ var HubPropertyReference;
     HubPropertyReference[HubPropertyReference["PRIMARY_MAC_ADDRESS"] = 13] = "PRIMARY_MAC_ADDRESS";
     HubPropertyReference[HubPropertyReference["SECONDARY_MAC_ADDRESS"] = 14] = "SECONDARY_MAC_ADDRESS";
     HubPropertyReference[HubPropertyReference["HARDWARE_NETWORK_FAMILY"] = 15] = "HARDWARE_NETWORK_FAMILY";
-})(HubPropertyReference = exports.HubPropertyReference || (exports.HubPropertyReference = {}));
+})(HubPropertyReference || (exports.HubPropertyReference = HubPropertyReference = {}));
 /**
  * @typedef HubPropertyOperation
  * @param {number} SET_DOWNSTREAM 0x01
@@ -425,7 +425,7 @@ var HubPropertyOperation;
     HubPropertyOperation[HubPropertyOperation["RESET_DOWNSTREAM"] = 4] = "RESET_DOWNSTREAM";
     HubPropertyOperation[HubPropertyOperation["REQUEST_UPDATE_DOWNSTREAM"] = 5] = "REQUEST_UPDATE_DOWNSTREAM";
     HubPropertyOperation[HubPropertyOperation["UPDATE_UPSTREAM"] = 6] = "UPDATE_UPSTREAM";
-})(HubPropertyOperation = exports.HubPropertyOperation || (exports.HubPropertyOperation = {}));
+})(HubPropertyOperation || (exports.HubPropertyOperation = HubPropertyOperation = {}));
 /**
  * @typedef HubPropertyPayload
  * @param {number} ADVERTISING_NAME 0x01
@@ -462,7 +462,7 @@ var HubPropertyPayload;
     HubPropertyPayload[HubPropertyPayload["PRIMARY_MAC_ADDRESS"] = 13] = "PRIMARY_MAC_ADDRESS";
     HubPropertyPayload[HubPropertyPayload["SECONDARY_MAC_ADDRESS"] = 14] = "SECONDARY_MAC_ADDRESS";
     HubPropertyPayload[HubPropertyPayload["HW_NETWORK_FAMILY"] = 15] = "HW_NETWORK_FAMILY";
-})(HubPropertyPayload = exports.HubPropertyPayload || (exports.HubPropertyPayload = {}));
+})(HubPropertyPayload || (exports.HubPropertyPayload = HubPropertyPayload = {}));
 /**
  * @typedef ActionType
  * @param {number} SWITCH_OFF_HUB 0x01
@@ -489,7 +489,7 @@ var ActionType;
     ActionType[ActionType["HUB_WILL_SWITCH_OFF"] = 48] = "HUB_WILL_SWITCH_OFF";
     ActionType[ActionType["HUB_WILL_DISCONNECT"] = 49] = "HUB_WILL_DISCONNECT";
     ActionType[ActionType["HUB_WILL_GO_INTO_BOOT_MODE"] = 50] = "HUB_WILL_GO_INTO_BOOT_MODE";
-})(ActionType = exports.ActionType || (exports.ActionType = {}));
+})(ActionType || (exports.ActionType = ActionType = {}));
 /**
  * @typedef AlertType
  * @param {number} LOW_VOLTAGE 0x01
@@ -504,7 +504,7 @@ var AlertType;
     AlertType[AlertType["HIGH_CURRENT"] = 2] = "HIGH_CURRENT";
     AlertType[AlertType["LOW_SIGNAL_STRENGTH"] = 3] = "LOW_SIGNAL_STRENGTH";
     AlertType[AlertType["OVER_POWER_CONDITION"] = 4] = "OVER_POWER_CONDITION";
-})(AlertType = exports.AlertType || (exports.AlertType = {}));
+})(AlertType || (exports.AlertType = AlertType = {}));
 /**
  * @typedef AlertOperation
  * @param {number} ENABLE_UPDATE 0x01
@@ -519,7 +519,7 @@ var AlertOperation;
     AlertOperation[AlertOperation["HIGH_CURRENT"] = 2] = "HIGH_CURRENT";
     AlertOperation[AlertOperation["LOW_SIGNAL_STRENGTH"] = 3] = "LOW_SIGNAL_STRENGTH";
     AlertOperation[AlertOperation["OVER_POWER_CONDITION"] = 4] = "OVER_POWER_CONDITION";
-})(AlertOperation = exports.AlertOperation || (exports.AlertOperation = {}));
+})(AlertOperation || (exports.AlertOperation = AlertOperation = {}));
 /**
  * @typedef AlertPayload
  * @param {number} STATUS_OK 0x00
@@ -530,7 +530,7 @@ var AlertPayload;
 (function (AlertPayload) {
     AlertPayload[AlertPayload["STATUS_OK"] = 0] = "STATUS_OK";
     AlertPayload[AlertPayload["ALERT"] = 255] = "ALERT";
-})(AlertPayload = exports.AlertPayload || (exports.AlertPayload = {}));
+})(AlertPayload || (exports.AlertPayload = AlertPayload = {}));
 /**
  * @typedef Event
  * @param {number} DETACHED_IO 0x00
@@ -543,7 +543,7 @@ var Event;
     Event[Event["DETACHED_IO"] = 0] = "DETACHED_IO";
     Event[Event["ATTACHED_IO"] = 1] = "ATTACHED_IO";
     Event[Event["ATTACHED_VIRTUAL_IO"] = 2] = "ATTACHED_VIRTUAL_IO";
-})(Event = exports.Event || (exports.Event = {}));
+})(Event || (exports.Event = Event = {}));
 /**
  * @typedef IOTypeID
  * @param {number} MOTOR 0x0001
@@ -578,7 +578,7 @@ var IOTypeID;
     IOTypeID[IOTypeID["EXTERNAL_MOTOR"] = 38] = "EXTERNAL_MOTOR";
     IOTypeID[IOTypeID["INTERNAL_MOTOR"] = 39] = "INTERNAL_MOTOR";
     IOTypeID[IOTypeID["INTERNAL_TILT"] = 40] = "INTERNAL_TILT";
-})(IOTypeID = exports.IOTypeID || (exports.IOTypeID = {}));
+})(IOTypeID || (exports.IOTypeID = IOTypeID = {}));
 /**
  * @typedef ErrorCode
  * @param {number} ACK 0x01
@@ -601,7 +601,7 @@ var ErrorCode;
     ErrorCode[ErrorCode["INVALID_USE"] = 6] = "INVALID_USE";
     ErrorCode[ErrorCode["OVERCURRENT"] = 7] = "OVERCURRENT";
     ErrorCode[ErrorCode["INTERNAL_ERROR"] = 8] = "INTERNAL_ERROR";
-})(ErrorCode = exports.ErrorCode || (exports.ErrorCode = {}));
+})(ErrorCode || (exports.ErrorCode = ErrorCode = {}));
 /**
  * @typedef HWNetWorkCommandType
  * @param {number} CONNECTION_REQUEST 0x02
@@ -634,7 +634,7 @@ var HWNetWorkCommandType;
     HWNetWorkCommandType[HWNetWorkCommandType["EXTENDED_FAMILY"] = 12] = "EXTENDED_FAMILY";
     HWNetWorkCommandType[HWNetWorkCommandType["EXTENDED_FAMILY_SET"] = 13] = "EXTENDED_FAMILY_SET";
     HWNetWorkCommandType[HWNetWorkCommandType["RESET_LONG_PRESS_TIMING"] = 14] = "RESET_LONG_PRESS_TIMING";
-})(HWNetWorkCommandType = exports.HWNetWorkCommandType || (exports.HWNetWorkCommandType = {}));
+})(HWNetWorkCommandType || (exports.HWNetWorkCommandType = HWNetWorkCommandType = {}));
 /**
  * @typedef HWNetworkFamily
  * @param {number} GREEN 0x01
@@ -659,7 +659,7 @@ var HWNetworkFamily;
     HWNetworkFamily[HWNetworkFamily["TEAL"] = 7] = "TEAL";
     HWNetworkFamily[HWNetworkFamily["PINK"] = 8] = "PINK";
     HWNetworkFamily[HWNetworkFamily["WHITE"] = 0] = "WHITE";
-})(HWNetworkFamily = exports.HWNetworkFamily || (exports.HWNetworkFamily = {}));
+})(HWNetworkFamily || (exports.HWNetworkFamily = HWNetworkFamily = {}));
 /**
  * @typedef HWNetworkSubFamily
  * @param {number} ONE_FLASH 0x01
@@ -680,7 +680,7 @@ var HWNetworkSubFamily;
     HWNetworkSubFamily[HWNetworkSubFamily["FIVE_FLASHES"] = 5] = "FIVE_FLASHES";
     HWNetworkSubFamily[HWNetworkSubFamily["SIX_FLASHES"] = 6] = "SIX_FLASHES";
     HWNetworkSubFamily[HWNetworkSubFamily["SEVEN_FLASHES"] = 7] = "SEVEN_FLASHES";
-})(HWNetworkSubFamily = exports.HWNetworkSubFamily || (exports.HWNetworkSubFamily = {}));
+})(HWNetworkSubFamily || (exports.HWNetworkSubFamily = HWNetworkSubFamily = {}));
 /**
  * @typedef ModeInformationType
  * @param {number} NAME 0x00
@@ -707,7 +707,7 @@ var ModeInformationType;
     ModeInformationType[ModeInformationType["MOTOR_BIAS"] = 7] = "MOTOR_BIAS";
     ModeInformationType[ModeInformationType["CAPABILITY_BITS"] = 8] = "CAPABILITY_BITS";
     ModeInformationType[ModeInformationType["VALUE_FORMAT"] = 128] = "VALUE_FORMAT";
-})(ModeInformationType = exports.ModeInformationType || (exports.ModeInformationType = {}));
+})(ModeInformationType || (exports.ModeInformationType = ModeInformationType = {}));
 /**
  * @typedef PortInputFormatSetupSubCommand
  * @param {number} SET_MODEANDDATASET_COMBINATIONS 0x01
@@ -726,7 +726,7 @@ var PortInputFormatSetupSubCommand;
     PortInputFormatSetupSubCommand[PortInputFormatSetupSubCommand["UNLOCKANDSTARTWITHMULTIUPDATEDISABLED"] = 4] = "UNLOCKANDSTARTWITHMULTIUPDATEDISABLED";
     PortInputFormatSetupSubCommand[PortInputFormatSetupSubCommand["NOT_USED"] = 5] = "NOT_USED";
     PortInputFormatSetupSubCommand[PortInputFormatSetupSubCommand["RESET_SENSOR"] = 6] = "RESET_SENSOR";
-})(PortInputFormatSetupSubCommand = exports.PortInputFormatSetupSubCommand || (exports.PortInputFormatSetupSubCommand = {}));
+})(PortInputFormatSetupSubCommand || (exports.PortInputFormatSetupSubCommand = PortInputFormatSetupSubCommand = {}));
 /**
  * @typedef MarioPantsType
  * @param {number} NONE 0x00
@@ -744,7 +744,7 @@ var MarioPantsType;
     MarioPantsType[MarioPantsType["FIRE"] = 18] = "FIRE";
     MarioPantsType[MarioPantsType["NORMAL"] = 33] = "NORMAL";
     MarioPantsType[MarioPantsType["BUILDER"] = 34] = "BUILDER";
-})(MarioPantsType = exports.MarioPantsType || (exports.MarioPantsType = {}));
+})(MarioPantsType || (exports.MarioPantsType = MarioPantsType = {}));
 /**
  * @typedef MarioColor
  * @param {number} WHITE 0x1300
@@ -766,7 +766,7 @@ var MarioColor;
     MarioColor[MarioColor["GREEN"] = 9472] = "GREEN";
     MarioColor[MarioColor["BROWN"] = 27136] = "BROWN";
     MarioColor[MarioColor["CYAN"] = 16897] = "CYAN";
-})(MarioColor = exports.MarioColor || (exports.MarioColor = {}));
+})(MarioColor || (exports.MarioColor = MarioColor = {}));
 /**
  * @typedef TiltDirection
  * @param {number} NEUTRAL 0
@@ -784,7 +784,7 @@ var TiltDirection;
     TiltDirection[TiltDirection["LEFT"] = 7] = "LEFT";
     TiltDirection[TiltDirection["FORWARD"] = 9] = "FORWARD";
     TiltDirection[TiltDirection["UNKNOWN"] = 10] = "UNKNOWN";
-})(TiltDirection = exports.TiltDirection || (exports.TiltDirection = {}));
+})(TiltDirection || (exports.TiltDirection = TiltDirection = {}));
 /**
  * @typedef CommandFeedback
  * @param {number} TRANSMISSION_PENDING 0x00 waiting for previous commands to complete transmission or execution
@@ -808,7 +808,7 @@ var CommandFeedback;
     CommandFeedback[CommandFeedback["EXECUTION_COMPLETED"] = 34] = "EXECUTION_COMPLETED";
     CommandFeedback[CommandFeedback["FEEDBACK_MISSING"] = 102] = "FEEDBACK_MISSING";
     CommandFeedback[CommandFeedback["FEEDBACK_DISABLED"] = 38] = "FEEDBACK_DISABLED";
-})(CommandFeedback = exports.CommandFeedback || (exports.CommandFeedback = {}));
+})(CommandFeedback || (exports.CommandFeedback = CommandFeedback = {}));
 //# sourceMappingURL=consts.js.map</code></pre>
   </article>
 </section>

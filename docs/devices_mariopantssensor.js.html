@@ -146,7 +146,7 @@ exports.MarioPantsSensor = MarioPantsSensor;
 var Mode;
 (function (Mode) {
     Mode[Mode["PANTS"] = 0] = "PANTS";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "pants": Mode.PANTS,
 };

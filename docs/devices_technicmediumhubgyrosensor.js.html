@@ -150,7 +150,7 @@ exports.TechnicMediumHubGyroSensor = TechnicMediumHubGyroSensor;
 var Mode;
 (function (Mode) {
     Mode[Mode["GYRO"] = 0] = "GYRO";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "gyro": Mode.GYRO
 };

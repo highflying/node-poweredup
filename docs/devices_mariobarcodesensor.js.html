@@ -169,7 +169,7 @@ var Mode;
 (function (Mode) {
     Mode[Mode["BARCODE"] = 0] = "BARCODE";
     Mode[Mode["RGB"] = 1] = "RGB";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "barcode": Mode.BARCODE,
     "rgb": Mode.RGB,

@@ -146,7 +146,7 @@ exports.RemoteControlButton = RemoteControlButton;
 var Mode;
 (function (Mode) {
     Mode[Mode["BUTTON_EVENTS"] = 0] = "BUTTON_EVENTS";
-})(Mode = exports.Mode || (exports.Mode = {}));
+})(Mode || (exports.Mode = Mode = {}));
 exports.ModeMap = {
     "remoteButton": Mode.BUTTON_EVENTS
 };

@@ -18,7 +18,7 @@
   "author": "Nathan Kellenicki <nathan@kellenicki.com>",
   "license": "MIT",
   "dependencies": {
-    "@abandonware/noble": "1.9.2-24"
+    "@abandonware/noble": "1.9.2-26"
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
